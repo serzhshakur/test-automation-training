@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.ClothesPage;
+import pages.DressesPage;
 
 class ShopTest {
 
@@ -22,17 +22,17 @@ class ShopTest {
     void setup() {
         header = new Header();
         mainPage = new MainPage();
-        Selenide.open("http://demo.prestashop.com");
+        Selenide.open("http://automationpractice.com/");
     }
 
     @Test
     @DisplayName("User is able to navigate to Clothes Pages")
     void test() {
         mainPage.waitForElements();
-        ClothesPage clothesPage = header
+        DressesPage dressesPage = header
                 .waitForElements()
-                .goToClothesCategory();
+                .goToDressesCategory();
 
-        clothesPage.waitForElements();
+        dressesPage.waitForElements();
     }
 }
