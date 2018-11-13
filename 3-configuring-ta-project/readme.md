@@ -12,7 +12,7 @@ So let's run the following command and see what happens
 ```aidl
 ./gradlew clean test
 ``` 
-As we can see nothing happened. It is because by default `java` plugin uses Junit4 as a test runner. We need to reconfigure a `test` task so it uses Juni5 platform. 
+As we can see no tests were executed. It is because by default `java` plugin uses Junit4 as a test runner. We need to reconfigure a `test` task so it uses Juni5 platform. 
 Add the following code to your `build.gradle` file
 ```aidl
 test {
@@ -20,3 +20,5 @@ test {
 }
 ```
 Now run `./gradlew clean test` again. You can see now tests are being executed.
+
+For more info on configuring Gradle + Juni5 check [Junit5 docs](https://junit.org/junit5/docs/current/user-guide/#running-tests-build-gradle)

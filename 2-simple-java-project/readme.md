@@ -15,8 +15,7 @@ ext {
 }
 
 dependencies {
-    implementation 'com.codeborne:selenide:5.0.0',
-            'io.github.bonigarcia:webdrivermanager:3.0.0'
+    implementation 'com.codeborne:selenide:5.0.0'
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion",
             "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
