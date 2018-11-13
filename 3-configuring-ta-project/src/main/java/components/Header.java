@@ -33,7 +33,7 @@ public class Header {
         return this;
     }
 
-    public DressesPage goToDressesCategory() {
+    public DressesPage chooseDressesCategory() {
         dressesCategoryTab.click();
         return new DressesPage();
     }

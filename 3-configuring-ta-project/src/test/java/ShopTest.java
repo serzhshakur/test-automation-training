@@ -26,12 +26,12 @@ class ShopTest {
     }
 
     @Test
-    @DisplayName("User is able to navigate to Clothes Pages")
+    @DisplayName("User is able to navigate to Dresses Pages")
     void test() {
         mainPage.waitForElements();
         DressesPage dressesPage = header
                 .waitForElements()
-                .goToDressesCategory();
+                .chooseDressesCategory();
 
         dressesPage.waitForElements();
     }

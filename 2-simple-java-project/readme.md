@@ -3,7 +3,7 @@
 In lesson 1 we learned how to create a simple Java project. 
 Now let's go further and configure our project so it meets our test automation needs.
 
-Let's assume that we need to setup an automation project to cover "http://demo.prestashop.com" page with Selenium web tests.
+Let's assume that we need to setup an automation project to cover "http://demo.prestashop.com" website with Selenium web tests.
 This will require to add some dependencies to `build.gradle` file namely 
 * Selenide (a lightweight wrapper over Selenium lib) 
 * Junit5 as a test runner
@@ -30,7 +30,7 @@ where
 * `testRuntimeOnly` dependencies which are only required at test runtime, and not at test compile time
 
 ### Building a project
-Let's now make sure we made all right. Run the following command. You should see the output like shown below
+Let's now make sure we made all right. Run the following command. You should see the output like shown below (check `build.gradle` file with full config in a project's root)
 ```$xslt
 ./gradlew clean build
 
@@ -50,3 +50,4 @@ Let's now make sure we made all right. Run the following command. You should see
 BUILD SUCCESSFUL in 0s
 2 actionable tasks: 2 executed
 ```
+Now we are ready to start writing a code.
