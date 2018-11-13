@@ -1,6 +1,6 @@
 # Configuring your first test automation project
 
-In lesson 2 we agreed to create a test automation project for  "http://demo.prestashop.com" website.
+In lesson 2 we agreed to create a test automation project for  "http://automationpractice.com/" website.
 
 Check project's sources. In `src/main/java` you will find an implementation of Page object model. In `src/main/test` there's a small Junit5 test which covers basic site navigation scenario. First run it from IntelliJ IDEA and make sure it works.
 

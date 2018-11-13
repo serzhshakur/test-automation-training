@@ -10,10 +10,9 @@ public class DressesPage {
     private final SelenideElement categoriesBlock = leftPanelElement.$("#categories_block_left");
     private final SelenideElement filtersBlock = leftPanelElement.$("#layered_block_left");
 
-    public DressesPage waitForElements() {
+    public void waitForElements() {
         categoriesBlock.shouldBe(visible);
         filtersBlock.shouldBe(visible);
-        return this;
     }
 
 }
