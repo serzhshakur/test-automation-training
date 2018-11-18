@@ -1,8 +1,12 @@
 package components;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 import pages.DressesPage;
+import pages.ProductPage;
+import selenide.CustomCondition;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
@@ -14,6 +18,8 @@ public class Header {
     private final SelenideElement loginLink = $(".login");
     private final SelenideElement searchBlock = $("#searchbox");
     private final SelenideElement searchInput = searchBlock.$(".search_query");
+    private final SelenideElement searchSuggestionsBlock = $(".ac_results");
+    private final ElementsCollection searchSuggestionsElements = searchSuggestionsBlock.$$("li");
     private final SelenideElement searchButton = searchBlock.$(".button-search");
     private final SelenideElement topMenu = $("#block_top_menu");
     private final ElementsCollection topMenuLinks = topMenu.$$(".menu-content>li>a");
@@ -36,6 +42,21 @@ public class Header {
     public DressesPage chooseDressesCategory() {
         dressesCategoryTab.click();
         return new DressesPage();
+    }
+
+    public Header enterSearchTerm(String searchTerm) {
+        searchInput.val(searchTerm);
+        return this;
+    }
+
+    public Header waitForSearchSuggestionsBlock() {
+        searchSuggestionsBlock.shouldBe(visible);
+        return this;
+    }
+
+    public ProductPage chooseFirstMatchingSuggestion() {
+        searchSuggestionsElements.find(CustomCondition.hasChild(By.tagName("strong"))).click();
+        return new ProductPage();
     }
 
 }

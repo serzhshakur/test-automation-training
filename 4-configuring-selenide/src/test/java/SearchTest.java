@@ -3,30 +3,29 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import pages.DressesPage;
-import pages.MainPage;
+import pages.ProductPage;
 import tests.configuration.SelenideCallbacks;
 
 @ExtendWith(SelenideCallbacks.class)
-class ShopTest {
+class SearchTest {
 
     private Header header;
-    private MainPage mainPage;
 
     @BeforeEach
     void setup() {
         header = new Header();
-        mainPage = new MainPage();
     }
 
     @Test
-    @DisplayName("User is able to navigate to Dresses Pages")
+    @DisplayName("User is able search an item")
     void test() {
-        mainPage.waitForElements();
-        DressesPage dressesPage = header
+        String searchTerm = "sleeve t-shirt";
+        ProductPage productPage = header
+                .enterSearchTerm(searchTerm)
+                .waitForSearchSuggestionsBlock()
+                .chooseFirstMatchingSuggestion();
+        productPage
                 .waitForElements()
-                .chooseDressesCategory();
-
-        dressesPage.waitForElements();
+                .productNameContains(searchTerm);
     }
 }
