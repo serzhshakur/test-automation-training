@@ -1,8 +1,9 @@
 # Configuring Selenide
 
+### Extracting Selenide configuration to a JUnit5 extension class
 In lesson 3 we set up a small test automation project and wrote our first test.
 So far so good. But as our test suite grows so does a boilerplate code. In each test class we need to repeat the following blocks of configuration
-```aidl
+```
     @BeforeAll
     static void staticSetup() {
         Configuration.browserSize = "1920x1080";
@@ -24,7 +25,7 @@ JUnit5 offers a great model for extending tests at various points in the test ex
 * `AfterEachCallback`
 * `AfterAllCallback`
 
-In our case we will implement two of them `BeforeAllCallback` and `BeforeEachCallback`
+In our case we will implement three of them `BeforeAllCallback`, `BeforeEachCallback` and `AfterEachCallback`
 
 ```aidl
 public class SelenideCallbacks implements BeforeAllCallback, BeforeEachCallback {
@@ -42,11 +43,19 @@ public class SelenideCallbacks implements BeforeAllCallback, BeforeEachCallback 
     public void beforeEach(ExtensionContext context) {
         Selenide.open("");
     }
+    
+    @Override
+    public void afterEach(ExtensionContext context) {
+        Selenide.close();
+    }
 }
 ```
-Now all we need to do is to annotate all our test classes in the following way:
+`beforeAll` callback will add some configuration to a Selenide, `beforeEach` will open a browser before each test, `afterEach` will close the browser after each test.
+
+Now let's annotate all our test classes in the following way:
 ```aidl
 @ExtendWith(SelenideCallbacks.class)
 class ShopTest {...}
 ```
-For more details check a projects source code
+`SelenideCallbacks`'s  callbacks will now be called on each tests' run. 
+For more details check a project's source code
