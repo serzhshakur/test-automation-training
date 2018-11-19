@@ -28,7 +28,7 @@ JUnit5 offers a great model for extending tests at various points in the test ex
 In our case we will implement three of them `BeforeAllCallback`, `BeforeEachCallback` and `AfterEachCallback`
 
 ```aidl
-public class SelenideCallbacks implements BeforeAllCallback, BeforeEachCallback {
+public class SelenideCallbacks implements BeforeAllCallback, BeforeEachCallback, AfterEachCallback {
 
     @Override
     public void beforeAll(ExtensionContext context) {
