@@ -1,5 +1,5 @@
-# Running test in parallel and tests filtering
-> This lesson will only contain gradle files. Refer to a lesson 4 codebase
+# Running test in parallel
+> This lesson will only contain gradle files. Refer to a lesson 4 codebase to see full implementation
 ### Configuring gradle task
 So far we've been executing our tests in one thread. This is ok for a small test suite but as the number of tests grows the time of tests execution grows as well. In this lesson we will learn how to run our tests in parallel flows. In this case each JUnit5 test class will be executed in a separate thread.
 
@@ -30,5 +30,3 @@ test {
 }
 ```
 We can read a property using `project.findProperty` expression. `?:` (Elvis operator) fallbacks us to a default value `1` if property has not been passed to the task.
-
- 
