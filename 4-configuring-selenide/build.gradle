@@ -14,9 +14,8 @@ dependencies {
 
 test {
     def forks = project.findProperty('forks') ?: 1
-
-    setMaxParallelForks(forks as int)
-    setMaxParallelForks(5)
+    maxParallelForks = forks as int
+    
     useJUnitPlatform {
         includeTags 'Shopping', 'Search'
     }
