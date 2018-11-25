@@ -1,5 +1,10 @@
 plugins {
     id 'java-library'
+    id "io.qameta.allure" version "2.5"
+}
+
+repositories {
+    jcenter()
 }
 
 ext {
@@ -22,6 +27,4 @@ test {
     }
 }
 
-repositories {
-    jcenter()
-}
+apply from: "$rootDir/gradle/allure.gradle"
