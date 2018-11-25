@@ -15,9 +15,10 @@ dependencies {
 test {
     def forks = project.findProperty('forks') ?: 1
     maxParallelForks = forks as int
-    
+
+    def tags = project.findProperty('tags') ?: 'All'
     useJUnitPlatform {
-        includeTags 'Shopping', 'Search'
+        includeTags(tags.split(',')*.trim() as String[])
     }
 }
 

@@ -9,6 +9,7 @@ import tests.configuration.SelenideCallbacks;
 
 @ExtendWith(SelenideCallbacks.class)
 @Tag("Search")
+@Tag("All")
 class SearchTest {
 
     private Header header;

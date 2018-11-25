@@ -10,6 +10,7 @@ import tests.configuration.SelenideCallbacks;
 
 @ExtendWith(SelenideCallbacks.class)
 @Tag("Shopping")
+@Tag("All")
 class ShopTest {
 
     private Header header;

@@ -7,9 +7,36 @@ JUnit5 allows to annotate test classes and methods with `@Tag("SomeMeaningfulNam
 
 Let's do this for our test classes.
 ```aidl
+@Tag("All")
 @Tag("Search")
 class SearchTest { ...}
 
+@Tag("All")
 @Tag("Shopping")
-class ShopTest {...)
+class ShopTest {...}
+```
+Now we can adjust our gradle task as follows 
+```aidl
+test {
+  ...
+  useJUnitPlatform {
+      includeTags 'Search', 'Shopping'
+  }
+  ...
+}
+```
+Let's make a list of tags configurable by introducing `tags` property (like we did in a previous lesson with number of flows)
+```
+test {
+  ...
+  def tags = project.findProperty('tags') ?: 'All'
+  useJUnitPlatform {
+      includeTags(tags.split(',')*.trim() as String[])
+  }
+  ...
+}
+```
+now we can specify which tags to run while running gradle task
+```aidl
+./gradlew clean test -Ptags="Search,Shopping"
 ```
