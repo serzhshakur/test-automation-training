@@ -1,6 +1,7 @@
 import components.Header;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import pages.DressesPage;
@@ -8,6 +9,8 @@ import pages.MainPage;
 import tests.configuration.SelenideCallbacks;
 
 @ExtendWith(SelenideCallbacks.class)
+@Tag("Shopping")
+@Tag("All")
 class ShopTest {
 
     private Header header;
