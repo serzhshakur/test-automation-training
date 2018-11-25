@@ -1,5 +1,5 @@
 # Filtering and tagging tests
-> This lesson will only contain gradle files. Refer to a lesson 4 codebase to see full implementation
+> This lesson will only contain readme file. Refer to a lesson 4 codebase to see full implementation
 
 Sometimes we need to execute only a particular set of tests depending on some conditions (environment-dependent tests, long-running tests, feature-specific tests etc.) 
 

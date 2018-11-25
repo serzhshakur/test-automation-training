@@ -1,5 +1,5 @@
 # Running test in parallel
-> This lesson will only contain gradle files. Refer to a lesson 4 codebase to see full implementation
+> This lesson will only contain readme file. Refer to a lesson 4 codebase to see full implementation
 ### Configuring gradle task
 So far we've been executing our tests in one thread. This is ok for a small test suite but as the number of tests grows the time of tests execution grows as well. In this lesson we will learn how to run our tests in parallel flows. In this case each JUnit5 test class will be executed in a separate thread.
 
