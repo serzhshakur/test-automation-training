@@ -1,7 +1,7 @@
 # Configuring Selenide
 
 ### Configuration parameters
-Selenide offers a very elegant configuration model which helps to quickly alter a behaviour of our web tests. `Configuration` class is responsible for tweaking all the Selenide functionality. For full list of configuration parameters check [docs](https://selenide.org/javadoc/current/index.html?com/codeborne/selenide/Configuration.html).
+Selenide offers a very elegant configuration model which helps to quickly alter a behaviour of our web tests. `Configuration` class is responsible for tweaking all the Selenide functionality. For full list of configuration parameters check [docs](https://com.example.web.selenide.org/javadoc/current/index.html?com/codeborne/com.example.web.selenide/Configuration.html).
 
 Let's have a look at some of the parameters we can change.
 * `browserSize` - sets the browser window size while tests execution
@@ -81,7 +81,7 @@ public class SelenideCallbacks implements BeforeAllCallback, BeforeEachCallback,
 Now let's annotate all our test classes in the following way:
 ```aidl
 @ExtendWith(SelenideCallbacks.class)
-class ShopTest {...}
+class com.training.web.ShopTest {...}
 ```
 `SelenideCallbacks`'s  callbacks will now be called on each tests' run. 
 For more details check a project's source code

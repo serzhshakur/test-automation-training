@@ -1,4 +1,4 @@
-package selenide;
+package com.training.web.selenide;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Driver;

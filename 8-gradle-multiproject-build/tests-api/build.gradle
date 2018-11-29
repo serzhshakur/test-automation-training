@@ -1,0 +1,22 @@
+dependencies {
+    implementation 'io.rest-assured:rest-assured:3.2.0',
+            'org.assertj:assertj-core:3.11.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.9.6'
+}
+
+task testApi(type: Test) {
+    systemProperties['apiKey'] = project.findProperty("apiKey")
+
+    def forks = project.findProperty('forks') ?: 1
+    maxParallelForks = forks as int
+
+    def tags = project.findProperty('tags') ?: 'All'
+
+    useJUnitPlatform {
+        includeTags(tags.split(',')*.trim() as String[])
+    }
+    
+    testLogging {
+        events "passed", "skipped", "failed", "standard_out"
+    }
+}

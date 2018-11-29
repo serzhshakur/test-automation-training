@@ -1,4 +1,4 @@
-package pages;
+package com.training.web.pages;
 
 import com.codeborne.selenide.SelenideElement;
 

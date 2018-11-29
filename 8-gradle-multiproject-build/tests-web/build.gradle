@@ -1,0 +1,13 @@
+dependencies {
+    implementation 'com.codeborne:selenide:5.0.1'
+}
+
+task testWeb(type: Test) {
+    def forks = project.findProperty('forks') ?: 1
+    maxParallelForks = forks as int
+
+    def tags = project.findProperty('tags') ?: 'All'
+    useJUnitPlatform {
+        includeTags(tags.split(',')*.trim() as String[])
+    }
+}

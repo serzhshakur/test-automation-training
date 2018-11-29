@@ -1,11 +1,13 @@
-import components.Header;
+package com.training.web;
+
+import com.training.web.components.Header;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import pages.ProductPage;
-import tests.configuration.SelenideCallbacks;
+import com.training.web.pages.ProductPage;
+import com.training.web.configuration.SelenideCallbacks;
 
 @ExtendWith(SelenideCallbacks.class)
 @Tag("Search")

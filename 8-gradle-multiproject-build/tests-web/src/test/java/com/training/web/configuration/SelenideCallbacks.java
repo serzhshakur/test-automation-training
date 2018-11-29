@@ -1,4 +1,4 @@
-package tests.configuration;
+package com.training.web.configuration;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
