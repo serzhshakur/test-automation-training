@@ -1,0 +1,13 @@
+apply plugin: 'io.qameta.allure'
+
+ext.allureVersion = '2.6.0'
+
+allure {
+    version = project.ext.allureVersion
+    resultsDir = file "$rootDir/build/allure-results/"
+
+    useJUnit5 {
+        version = project.ext.allureVersion
+    }
+
+}
