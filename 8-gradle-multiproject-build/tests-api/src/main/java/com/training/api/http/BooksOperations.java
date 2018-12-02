@@ -1,19 +1,30 @@
 package com.training.api.http;
 
 import com.training.api.domain.Book;
-import io.restassured.RestAssured;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static com.training.api.http.ApiSpecProvider.booksApi;
 
 public class BooksOperations {
 
     public List<Book> getBooksByAuthor(String author) {
-        String apiKey = System.getProperty("apiKey");
+        Map<String, Object> params = new HashMap<>();
+        params.put("author", author);
+        return getBooks(params);
+    }
 
-        return RestAssured.given()
-                .baseUri("http://api.nytimes.com/svc/books/v3/lists")
-                .header("api-key", apiKey)
-                .queryParam("author", author)
+    public List<Book> getBooksByIsbn(String isbn) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("isbn", isbn);
+        return getBooks(params);
+    }
+
+    private List<Book> getBooks(Map<String, Object> searchTerms) {
+        return booksApi()
+                .queryParams(searchTerms)
                 .when().get("/best-sellers/history.json")
                 .then().statusCode(200)
                 .extract().jsonPath().getList("results", Book.class);

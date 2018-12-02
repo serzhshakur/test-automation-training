@@ -3,6 +3,7 @@ package com.training.api.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
@@ -11,6 +12,7 @@ public class Book {
     private String author;
     private String contributor;
     private BigDecimal price;
+    private List<Isbn> isbns;
 
     public String getTitle() {
         return title;
@@ -30,5 +32,9 @@ public class Book {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public List<Isbn> getIsbns() {
+        return isbns;
     }
 }
