@@ -5,7 +5,7 @@ dependencies {
 }
 
 task testApi(type: Test) {
-    systemProperties['apiKey'] = project.findProperty("apiKey")
+    systemProperties.putAll(System.properties.findAll { it.key.startsWith('test.') })
 
     def forks = project.findProperty('forks') ?: 1
     maxParallelForks = forks as int
@@ -15,7 +15,7 @@ task testApi(type: Test) {
     useJUnitPlatform {
         includeTags(tags.split(',')*.trim() as String[])
     }
-    
+
     testLogging {
         events "passed", "skipped", "failed", "standard_out"
     }

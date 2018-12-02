@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.config;
 import static io.restassured.config.LogConfig.logConfig;
 
 class ApiSpecProvider {
-    private static String API_KEY = System.getProperty("apiKey");
+    private static String API_KEY = System.getProperty("test.apiKey");
 
     static RequestSpecification booksApi() {
         RequestSpecification booksApiSpec = new RequestSpecBuilder()
