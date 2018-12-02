@@ -35,9 +35,19 @@ class BooksTest {
         assertThat(booksByIsbn10).hasSize(1);
         assertThat(booksByIsbn10.get(0).getAuthor()).isEqualTo("Dan Brown");
         assertThat(booksByIsbn10.get(0).getTitle()).containsIgnoringCase("Inferno");
+        assertThat(booksByIsbn10.get(0).getIsbns()).anySatisfy(isbn -> {
+                    assertThat(isbn.getIsbn10()).isEqualTo(isbn10);
+                    assertThat(isbn.getIsbn13()).isEqualTo(isbn13);
+                }
+        );
 
         assertThat(booksByIsbn13).hasSize(1);
         assertThat(booksByIsbn13.get(0).getAuthor()).isEqualTo("Dan Brown");
         assertThat(booksByIsbn13.get(0).getTitle()).containsIgnoringCase("Inferno");
+        assertThat(booksByIsbn13.get(0).getIsbns()).anySatisfy(isbn -> {
+                    assertThat(isbn.getIsbn10()).isEqualTo(isbn10);
+                    assertThat(isbn.getIsbn13()).isEqualTo(isbn13);
+                }
+        );
     }
 }
