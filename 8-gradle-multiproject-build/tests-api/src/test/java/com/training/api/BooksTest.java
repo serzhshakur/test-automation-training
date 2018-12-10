@@ -2,8 +2,10 @@ package com.training.api;
 
 import com.training.api.domain.Book;
 import com.training.api.http.BooksOperations;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.List;
 
@@ -11,13 +13,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("Books")
 @Tag("All")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class BooksTest {
 
+    private BooksOperations booksOperations = new BooksOperations();
+
     @Test
+    @DisplayName("search book by author")
     void searchByAuthor() {
         String author = "Dan Brown";
         String bookName = "Angels and Demons";
-        List<Book> books = new BooksOperations().getBooksByAuthor(author);
+        List<Book> books = booksOperations.getBooksByAuthor(author);
 
         assertThat(books)
                 .hasSize(4)
@@ -26,11 +32,12 @@ class BooksTest {
     }
 
     @Test
+    @DisplayName("search book by ISBN")
     void searchByIsbn() {
         String isbn10 = "0385537859";
         String isbn13 = "9780385537858";
-        List<Book> booksByIsbn10 = new BooksOperations().getBooksByIsbn(isbn10);
-        List<Book> booksByIsbn13 = new BooksOperations().getBooksByIsbn(isbn13);
+        List<Book> booksByIsbn10 = booksOperations.getBooksByIsbn(isbn10);
+        List<Book> booksByIsbn13 = booksOperations.getBooksByIsbn(isbn13);
 
         assertThat(booksByIsbn10).hasSize(1);
         assertThat(booksByIsbn10.get(0).getAuthor()).isEqualTo("Dan Brown");

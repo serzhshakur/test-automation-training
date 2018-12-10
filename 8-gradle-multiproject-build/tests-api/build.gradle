@@ -5,7 +5,8 @@ dependencies {
 }
 
 task testApi(type: Test) {
-    systemProperties.putAll(System.properties.findAll { it.key.startsWith('test.') })
+    def testProps = System.properties.findAll { it.key.startsWith('test.') }
+    systemProperties.putAll(testProps)
 
     def forks = project.findProperty('forks') ?: 1
     maxParallelForks = forks as int

@@ -1,4 +1,5 @@
 dependencies {
+//    implementation project("::tests-api")
     implementation 'com.codeborne:selenide:5.0.1'
 }
 
