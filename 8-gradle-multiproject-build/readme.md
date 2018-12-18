@@ -26,3 +26,26 @@ Assume we have two modules: for `web` and `api` tests. Let's create a project wi
             └── java
 ```
 As can be seen we have a main `build.gradle` file and two more in every project's folder.
+
+Let's first configure the main build.gradle file.
+```
+plugins {
+    id 'java-library'
+}
+
+ext.junitJupiterVersion = '5.3.1'
+
+allprojects {
+    apply plugin: 'java-library'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+    }
+
+}
+```
